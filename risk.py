@@ -14,6 +14,8 @@ attackers_roll = []
 defenders_roll = []
 
 while defending_troops > 0 and attacking_troops > 0:
+    attackers_roll = []
+    defenders_roll = []
     if attacking_troops >= 3:
         attack_int1 = random.randint(1,6)
         attack_int2 = random.randint(1,6)
@@ -39,9 +41,35 @@ while defending_troops > 0 and attacking_troops > 0:
         defense_int1 = random.randint(1,6)
         defenders_roll.append(defense_int1)
 
+    attackers_roll = sorted(attackers_roll)
+    defenders_roll = sorted(defenders_roll)
+    if len(defenders_roll) > 1:
+        if defenders_roll[-1] >= attackers_roll[-1]:
+            print(f"Defense rolled a {defenders_roll[-1]} which beats the attacking {attackers_roll[-1]}")
+            attacking_troops -= 1
+        else:
+            print(f"Defense rolled a {defenders_roll[-1]} which loses to the attackers {attackers_roll[-1]}")
+            defending_troops -= 1
+        if defenders_roll[-2] >= attackers_roll[-2]:
+            print(f"Defense rolled a {defenders_roll[-2]} which beats the attacking {attackers_roll[-2]}")
+            attacking_troops -= 1
+        else:
+            print(f"Defense rolled a {defenders_roll[-2]} which loses to the attackers {attackers_roll[-2]}")
+            defending_troops -= 1
+
+    else:
+        if defenders_roll[-1] >= attackers_roll[-1]:
+            print(f"Defense rolled a {defenders_roll[-1]} which beats the attacking {attackers_roll[-1]}")
+            attacking_troops -= 1
+        else:
+            print(f"Defense rolled a {defenders_roll[-1]} which loses to the attackers {attackers_roll[-1]}")
+            defending_troops -= 1
+        
+
     print("Attacker's roll: ", attackers_roll)
     print("Defender's roll: ", defenders_roll)
 
-    defending_troops -= 100
+    print("Defending Troops: ", defending_troops)
+    print("Attacking Troops: ", attacking_troops)
 
 
