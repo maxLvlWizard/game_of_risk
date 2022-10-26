@@ -14,17 +14,17 @@ attackers_roll = []
 defenders_roll = []
 
 # generate random numbers for rolls depending on how many attacking/defending troops
-while defending_troops > 0 and attacking_troops > 0:
+while defending_troops > 0 and attacking_troops > 1:
     attackers_roll = []
     defenders_roll = []
-    if attacking_troops >= 3:
+    if attacking_troops >= 4:
         attack_int1 = random.randint(1,6)
         attack_int2 = random.randint(1,6)
         attack_int3 = random.randint(1,6)
         attackers_roll.append(attack_int1)
         attackers_roll.append(attack_int2)
         attackers_roll.append(attack_int3)
-    elif attacking_troops == 2:
+    elif attacking_troops == 3:
         attack_int1 = random.randint(1,6)
         attack_int2 = random.randint(1,6)
         attackers_roll.append(attack_int1)
