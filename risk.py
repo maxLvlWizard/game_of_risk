@@ -13,6 +13,7 @@ except ValueError:
 attackers_roll = []
 defenders_roll = []
 
+# generate random numbers for rolls depending on how many attacking/defending troops
 while defending_troops > 0 and attacking_troops > 0:
     attackers_roll = []
     defenders_roll = []
@@ -41,9 +42,17 @@ while defending_troops > 0 and attacking_troops > 0:
         defense_int1 = random.randint(1,6)
         defenders_roll.append(defense_int1)
 
+# sort attacking and random numbers so the highest numbers can be accessed with "list_name[-1]""
     attackers_roll = sorted(attackers_roll)
     defenders_roll = sorted(defenders_roll)
-    if len(defenders_roll) > 1:
+    
+    print("=====================")
+    print("Defending Troops: ", defending_troops)
+    print("Attacking Troops: ", attacking_troops)
+    print("Attacker's roll: ", attackers_roll)
+    print("Defender's roll: ", defenders_roll)
+
+    if len(defenders_roll) > 1 and len(attackers_roll) > 1:
         if defenders_roll[-1] >= attackers_roll[-1]:
             print(f"Defense rolled a {defenders_roll[-1]} which beats the attacking {attackers_roll[-1]}")
             attacking_troops -= 1
@@ -66,10 +75,9 @@ while defending_troops > 0 and attacking_troops > 0:
             defending_troops -= 1
         
 
-    print("Attacker's roll: ", attackers_roll)
-    print("Defender's roll: ", defenders_roll)
+    print("=====================")
 
-    print("Defending Troops: ", defending_troops)
-    print("Attacking Troops: ", attacking_troops)
+print("Defending Troops: ", defending_troops)
+print("Attacking Troops: ", attacking_troops)
 
 
