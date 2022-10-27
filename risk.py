@@ -10,9 +10,10 @@ except ValueError:
     print("Error: Invalid Input.")
     sys.exit(1)
 
+
+
 attackers_roll = []
 defenders_roll = []
-
 total_attacking_troops_lost = 0 
 total_defending_troops_lost = 0 
 # generate random numbers for rolls depending on how many attacking/defending troops
