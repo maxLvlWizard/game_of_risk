@@ -10,6 +10,8 @@ except ValueError:
     print("Error: Invalid Input.")
     sys.exit(1)
 
+# This is the main branch in github
+
 attackers_roll = []
 defenders_roll = []
 
@@ -95,5 +97,4 @@ while defending_troops > 0 and attacking_troops > 1:
 # print the number of remaining troops aswell as the total number of troops lost
 print(f"{defending_troops} remaining defending troops after losing {total_defending_troops_lost} in battle.")
 print(f"{attacking_troops} remaining attacking troops after losing {total_attacking_troops_lost} in battle.")
-
 
