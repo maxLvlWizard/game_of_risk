@@ -13,6 +13,8 @@ except ValueError:
 attackers_roll = []
 defenders_roll = []
 
+total_attacking_troops_lost = 0 
+total_defending_troops_lost = 0 
 # generate random numbers for rolls depending on how many attacking/defending troops
 while defending_troops > 0 and attacking_troops > 1:
     attackers_roll = []
@@ -52,32 +54,43 @@ while defending_troops > 0 and attacking_troops > 1:
     print("Attacker's roll: ", attackers_roll)
     print("Defender's roll: ", defenders_roll)
 
+    attacking_troops_lost = 0
+    defending_troops_lost = 0
     if len(defenders_roll) > 1 and len(attackers_roll) > 1:
         if defenders_roll[-1] >= attackers_roll[-1]:
-            print(f"Defense rolled a {defenders_roll[-1]} which beats the attacking {attackers_roll[-1]}")
             attacking_troops -= 1
+            attacking_troops_lost += 1
+            total_attacking_troops_lost += 1
         else:
-            print(f"Defense rolled a {defenders_roll[-1]} which loses to the attackers {attackers_roll[-1]}")
             defending_troops -= 1
+            defending_troops_lost += 1
+            total_defending_troops_lost += 1
+
         if defenders_roll[-2] >= attackers_roll[-2]:
-            print(f"Defense rolled a {defenders_roll[-2]} which beats the attacking {attackers_roll[-2]}")
             attacking_troops -= 1
+            attacking_troops_lost +=1
+            total_attacking_troops_lost += 1
         else:
-            print(f"Defense rolled a {defenders_roll[-2]} which loses to the attackers {attackers_roll[-2]}")
             defending_troops -= 1
+            defending_troops_lost += 1
+            total_defending_troops_lost += 1
 
     else:
         if defenders_roll[-1] >= attackers_roll[-1]:
-            print(f"Defense rolled a {defenders_roll[-1]} which beats the attacking {attackers_roll[-1]}")
             attacking_troops -= 1
+            attacking_troops_lost +=1
+            total_attacking_troops_lost += 1
         else:
-            print(f"Defense rolled a {defenders_roll[-1]} which loses to the attackers {attackers_roll[-1]}")
             defending_troops -= 1
-        
+            defending_troops_lost += 1
+            total_defending_troops_lost += 1
+            
+    print(f"Attacking troops lost: {attacking_troops_lost}      {total_attacking_troops_lost} : Total ataccking troops lost")
+    print(f"Defending troops lost: {defending_troops_lost}      {total_defending_troops_lost} : Total defending troops lost")
 
     print("=====================")
 
-print("Defending Troops: ", defending_troops)
-print("Attacking Troops: ", attacking_troops)
+print(f"{defending_troops} remaining defending troops after losing {total_defending_troops_lost} in battle.")
+print(f"{attacking_troops} remaining attacking troops after losing {total_attacking_troops_lost} in battle.")
 
 
