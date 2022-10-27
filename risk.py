@@ -53,9 +53,11 @@ while defending_troops > 0 and attacking_troops > 1:
     print("Attacking Troops: ", attacking_troops)
     print("Attacker's roll: ", attackers_roll)
     print("Defender's roll: ", defenders_roll)
-
+    # keep track of number of troops lost per round so it can be printed.
     attacking_troops_lost = 0
     defending_troops_lost = 0
+
+    # if attackers and defenders could each roll at least two dice, compare the first and second highest numbers respectively.
     if len(defenders_roll) > 1 and len(attackers_roll) > 1:
         if defenders_roll[-1] >= attackers_roll[-1]:
             attacking_troops -= 1
@@ -75,6 +77,7 @@ while defending_troops > 0 and attacking_troops > 1:
             defending_troops_lost += 1
             total_defending_troops_lost += 1
 
+    # if the attacking or defending team only rolls one die, this will compare it to the highest value for the other player. 
     else:
         if defenders_roll[-1] >= attackers_roll[-1]:
             attacking_troops -= 1
@@ -84,12 +87,12 @@ while defending_troops > 0 and attacking_troops > 1:
             defending_troops -= 1
             defending_troops_lost += 1
             total_defending_troops_lost += 1
-            
+
+    # print the number of troops lost per round aswell as the total number of troops lost.    
     print(f"Attacking troops lost: {attacking_troops_lost}      {total_attacking_troops_lost} : Total ataccking troops lost")
     print(f"Defending troops lost: {defending_troops_lost}      {total_defending_troops_lost} : Total defending troops lost")
 
-    print("=====================")
-
+# print the number of remaining troops aswell as the total number of troops lost
 print(f"{defending_troops} remaining defending troops after losing {total_defending_troops_lost} in battle.")
 print(f"{attacking_troops} remaining attacking troops after losing {total_attacking_troops_lost} in battle.")
 
