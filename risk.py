@@ -4,24 +4,27 @@ import sys
 # Ask for number of attacking/defending troops. 
 
 try:
-    defending_troops = int(input("Defending troops: "))
-    attacking_troops = int(input("Attacking troops: "))
+    defending_troops_from_input = int(input("Defending troops: "))
+    attacking_troops_from_input = int(input("Attacking troops: "))
 except ValueError:
     print("Error: Invalid Input.")
     sys.exit(1)
 
 
 
-attackers_roll = []
-defenders_roll = []
-total_attacking_troops_lost = 0 
-total_defending_troops_lost = 0 
-# generate random numbers for rolls depending on how many attacking/defending troops
+
 
 attacking = []
 defending = []
 
 for i in range(0, 1000):
+    defending_troops = defending_troops_from_input
+    attacking_troops = attacking_troops_from_input
+    total_attacking_troops_lost = 0 
+    total_defending_troops_lost = 0 
+    attackers_roll = []
+    defenders_roll = []
+    # generate random numbers for rolls depending on how many attacking/defending troops
     while defending_troops > 0 and attacking_troops > 1:
         attackers_roll = []
         defenders_roll = []
@@ -97,8 +100,8 @@ for i in range(0, 1000):
         # print the number of troops lost per round aswell as the total number of troops lost.    
         print(f"Attacking troops lost: {attacking_troops_lost}      {total_attacking_troops_lost} : Total ataccking troops lost")
         print(f"Defending troops lost: {defending_troops_lost}      {total_defending_troops_lost} : Total defending troops lost")
-        attacking.append(total_attacking_troops_lost)
-        defending.append(total_defending_troops_lost)
+    attacking.append(total_attacking_troops_lost)
+    defending.append(total_defending_troops_lost)
 
 # print the number of remaining troops aswell as the total number of troops lost
 print(f"{defending_troops} remaining defending troops after losing {total_defending_troops_lost} in battle.")
@@ -108,3 +111,7 @@ print("This is the smoothed_average branch!")
 
 print("Attacking: ", len(attacking))
 print("Defending: ", len(defending))
+
+
+print("Attacking: ", attacking)
+print("Defending: ", defending)
